@@ -46,13 +46,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		019E7BC628FDFB9E00A987D6 /* Models */ = {
+		019E7BC628FDFB9E00A987D6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				019E7BC428FDFACD00A987D6 /* Posts.swift */,
-				019E7D0C28FEFC4400A987D6 /* NetworkManager.swift */,
 			);
-			path = Models;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		019E7D0A28FDFC4D00A987D6 /* View Controllers */ = {
@@ -71,6 +70,14 @@
 				01D911DC28FDC573002AA41F /* Assets.xcassets */,
 			);
 			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		019E7D0E28FF63BF00A987D6 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				019E7D0C28FEFC4400A987D6 /* NetworkManager.swift */,
+			);
+			path = NetworkManager;
 			sourceTree = "<group>";
 		};
 		01D911C728FDC570002AA41F = {
@@ -94,7 +101,8 @@
 		01D911D228FDC571002AA41F /* alamofireProject */ = {
 			isa = PBXGroup;
 			children = (
-				019E7BC628FDFB9E00A987D6 /* Models */,
+				019E7D0E28FF63BF00A987D6 /* NetworkManager */,
+				019E7BC628FDFB9E00A987D6 /* Model */,
 				019E7D0A28FDFC4D00A987D6 /* View Controllers */,
 				019E7D0B28FDFC7B00A987D6 /* Supporting files */,
 				01D911D928FDC571002AA41F /* Main.storyboard */,
