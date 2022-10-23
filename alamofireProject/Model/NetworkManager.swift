@@ -16,14 +16,17 @@ final class NetworkManager {
     private init() {}
     
     func getPosts(completion: @escaping (Posts) -> Void) {
-        AF.request("https://jsonplaceholder.typicode.com/posts", method: .get).validate().responseDecodable(of: Posts.self) { response in
-            switch response.result {
-            case .success(let posts):
-                completion(posts)
-            case .failure(let error):
-                print(error.localizedDescription)
+        DispatchQueue.global().async {
+            AF.request("https://jsonplaceholder.typicode.com/posts", method: .get).validate().responseDecodable(of: Posts.self) { response in
+                switch response.result {
+                case .success(let posts):
+                    completion(posts)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
             }
         }
+       
     }
     
     func deletePost(indexPath: Int) {
