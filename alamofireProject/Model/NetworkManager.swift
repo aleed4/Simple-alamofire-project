@@ -30,8 +30,11 @@ final class NetworkManager {
     }
     
     func deletePost(indexPath: Int) {
-        AF.request("https://jsonplaceholder.typicode.com/posts/\(indexPath)", method: .delete)
-        print("post \(indexPath) delete from server")
+        DispatchQueue.global().async {
+            AF.request("https://jsonplaceholder.typicode.com/posts/\(indexPath)", method: .delete)
+            print("post \(indexPath) delete from server")
+        }
+       
     }
     
 }

@@ -29,8 +29,11 @@ class PostsViewController: UITableViewController {
         self.tableView.keyboardDismissMode = .onDrag
         
         NetworkManager.shared.getPosts { posts in
-            self.posts = posts
-            self.tableView.reloadData()
+            DispatchQueue.main.async {
+                self.posts = posts
+                self.tableView.reloadData()
+            }
+          
         }
         
         }
@@ -89,5 +92,10 @@ extension PostsViewController: UISearchResultsUpdating, UISearchBarDelegate {
             filteredPosts = filteredPosts?.filter{ $0.title.lowercased().contains(text.lowercased()) || $0.body.lowercased().contains(text.lowercased()) }
             tableView.reloadData()
         }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        filteredPosts = nil
+        tableView.reloadData()
     }
 }
